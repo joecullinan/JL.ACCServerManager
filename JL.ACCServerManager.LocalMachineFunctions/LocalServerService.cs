@@ -9,7 +9,7 @@ namespace JL.ACCServerManager.LocalMachineFunctions
     /// <summary>
     /// Low-Level functions for controlling the server process, starting and stopping, and modifying the filesystem to update configs. 
     /// </summary>
-    public class LocalServerController
+    public class LocalServerService: ILocalServerService
     {
 
         private readonly IConfiguration Configuration;
@@ -17,7 +17,7 @@ namespace JL.ACCServerManager.LocalMachineFunctions
         private FileInfo serverExe;
 
 
-        public LocalServerController(IConfiguration configuration)
+        public LocalServerService(IConfiguration configuration)
         {
             Configuration = configuration;
             //see if server exists at location
@@ -37,7 +37,6 @@ namespace JL.ACCServerManager.LocalMachineFunctions
             startServer();
             return true;
         }
-
         public bool stopServer()
         {
             Process[] processes = Process.GetProcessesByName(Configuration["ACCServerExecutableName"]);
@@ -69,7 +68,6 @@ namespace JL.ACCServerManager.LocalMachineFunctions
 
             }
         }
-
         private void parseOutputLines(string outputLine)
         {
             Console.WriteLine(outputLine);
