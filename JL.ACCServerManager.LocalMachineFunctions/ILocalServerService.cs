@@ -1,9 +1,15 @@
-﻿namespace JL.ACCServerManager.LocalMachineFunctions
+﻿using JL.ACCServerManager.Models;
+using System.Threading.Tasks;
+
+namespace JL.ACCServerManager.LocalMachineFunctions
 {
     public interface ILocalServerService
     {
         public bool restartServer();
-        public void startServer();
-            public bool stopServer();
+        public  Task<bool> startServer();
+        public  Task<bool> stopServer();
+        public Task<Event> getEventConfig();
+
+        public Task<string> writeEventConfig(Event eventConfig);
     }
 }
