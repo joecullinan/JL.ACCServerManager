@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JL.ACCServerManager.LocalMachineFunctions\JL.ACCServerManager.LocalMachineFunctions.csproj" />
+    <ProjectReference Include="..\JL.ACCServerManager.Models\JL.ACCServerManager.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
